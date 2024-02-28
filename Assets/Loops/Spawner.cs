@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -20,6 +21,12 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemies()
     {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            float xPos = i*spawnOffset;
+            Vector3 spawnPosition = new Vector3(xPos,0f,0f);
 
+            Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
+        }
     }
 }
